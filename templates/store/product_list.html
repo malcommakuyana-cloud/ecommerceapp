@@ -1,0 +1,40 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<h2 class="title">Shop Collection</h2>
+<p class="section-copy">Discover premium fashion pieces built for confidence, comfort, and impact.</p>
+
+<div class="grid">
+
+{% for product in products %}
+<div class="card">
+    <div class="card-media">
+        {% if product.image %}
+            <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
+        {% else %}
+            <div class="product-placeholder">
+                <i class="fas fa-tshirt"></i>
+            </div>
+        {% endif %}
+    </div>
+    <div class="card-content">
+        <div class="card-meta">
+            <span class="tag">Top Pick</span>
+            <span class="price">${{ product.price }}</span>
+        </div>
+        <h3>{{ product.name }}</h3>
+        <p class="product-description">{{ product.description|truncatechars:80 }}</p>
+        <div class="card-actions">
+            <a href="{% url 'add_to_cart' product.id %}" class="btn">
+                <i class="fas fa-shopping-cart"></i>
+                Add to Cart
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

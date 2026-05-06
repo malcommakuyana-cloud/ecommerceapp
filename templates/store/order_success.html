@@ -1,0 +1,34 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<section class="page-hero">
+    <h2 class="title">Order Confirmed</h2>
+    <p class="section-copy">Thank you for choosing DRIPSTORE. Your order has been placed successfully.</p>
+</section>
+
+<div class="card">
+    <div class="card-content">
+        <div class="card-meta">
+            <span class="tag">Order #{{ order.id }}</span>
+            <span class="price">${{ order.total|floatformat:2 }}</span>
+        </div>
+
+        <p class="product-description">We’re preparing your package now. You’ll receive shipping details soon.</p>
+
+        <div class="order-items">
+            {% for item in order.items.all %}
+            <div class="order-item">
+                <h3>{{ item.product.name }}</h3>
+                <p>Qty: {{ item.quantity }} • ${{ item.price|floatformat:2 }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="card-actions">
+            <a href="{% url 'home' %}" class="btn">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

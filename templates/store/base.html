@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIPSTORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SzlrxWriC3oH5R4NT6scl3yfzKque4r0Hs8kxP2zaQJfNn7v+eav5rqU13WGPb8WoNhVd2WJpI5iCe2i1G/4Bw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="brand">
+        <span class="logo">DRIPSTORE</span>
+        <span class="tagline">Urban luxury for every drop</span>
+    </div>
+    <div class="nav-links">
+        <a href="/"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="/products/"><i class="fa-solid fa-store"></i>Shop</a>
+        <a href="/cart/"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+        <a href="/form/"><i class="fa-solid fa-envelope"></i>Contact</a>
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

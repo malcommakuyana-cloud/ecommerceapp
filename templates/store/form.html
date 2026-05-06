@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<section class="page-hero">
+    <h2 class="title">Contact Us</h2>
+    <p class="section-copy">Have a question or request? Send us a message and our support team will respond quickly.</p>
+</section>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send Message</button>
+</form>
+
+{% if success %}
+<p class="success">Message sent successfully.</p>
+{% endif %}
+
+{% endblock %}
